@@ -1,0 +1,147 @@
+openapi: 3.0.4
+info:
+  title: Cron Expression Parser
+  description: Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/cronparser:
+    get:
+      summary: Parse Cron Expression
+      description: Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.
+      operationId: cronparser
+      parameters:
+      - name: expression
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The cron expression to parse (5-field or 6-field format)
+        example: 0 9 * * 1-5
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  expression: 0 9 * * 1-5
+                  isValid: true
+                  format: 5-field
+                  fields:
+                    second:
+                      expression: '0'
+                      description: At 0
+                      values:
+                      - 0
+                    minute:
+                      expression: '0'
+                      description: At 0
+                      values:
+                      - 0
+                    hour:
+                      expression: '9'
+                      description: At 9
+                      values:
+                      - 9
+                    dayOfMonth:
+                      expression: '*'
+                      description: Every
+                      values:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      - 6
+                      - 7
+                      - 8
+                      - 9
+                      - 10
+                      - 11
+                      - 12
+                      - 13
+                      - 14
+                      - 15
+                      - 16
+                      - 17
+                      - 18
+                      - 19
+                      - 20
+                      - 21
+                      - 22
+                      - 23
+                      - 24
+                      - 25
+                      - 26
+                      - 27
+                      - 28
+                      - 29
+                      - 30
+                      - 31
+                    month:
+                      expression: '*'
+                      description: Every
+                      values:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      - 6
+                      - 7
+                      - 8
+                      - 9
+                      - 10
+                      - 11
+                      - 12
+                    dayOfWeek:
+                      expression: 1-5
+                      description: From 1 to 5
+                      values:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                  description: At 9:00 AM on Monday, Tuesday, Wednesday, Thursday, Friday
+                  frequency:
+                    type: Daily
+                    interval: day
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
