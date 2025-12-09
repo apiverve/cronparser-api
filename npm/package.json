@@ -1,0 +1,35 @@
+{
+  "name": "@apiverve/cronparser",
+  "version": "1.1.12",
+  "description": "Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "mocha",
+    "example": "node examples/basic.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apiverve/cronparser-api.git",
+    "directory": "npm"
+  },
+  "keywords": [
+    "cron", "cron parser", "cron validator", "cron expression", "schedule parser"
+  ],
+  "author": "APIVerve <hello@apiverve.com> (http://apiverve.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apiverve/cronparser-api/issues"
+  },
+  "homepage": "https://apiverve.com/marketplace/cronparser?utm_source=npm",
+  "devDependencies": {
+    "mocha": "^11.0.1",
+    "chai": "^5.1.2",
+    "dotenv": "^16.4.7"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "promise": "^8.3.0",
+    "axios": "1.13.2"
+  }
+}
