@@ -17,14 +17,11 @@ def call_cronparser_api():
     Make a GET request to the Cron Expression Parser API
     """
     try:
-        # Query parameters
-        params &#x3D; {&#x27;expression&#x27;: &#x27;0 9 * * 1-5&#x27;}
-
         headers = {
             'x-api-key': API_KEY
         }
 
-        response = requests.get(API_URL, headers=headers, params=params)
+        response = requests.get(API_URL, headers=headers)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
