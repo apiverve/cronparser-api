@@ -12,7 +12,6 @@ namespace APIVerve.API.CronExpressionParser
     {
         /// <summary>
         /// The cron expression to parse (5-field or 6-field format)
-        /// Example: 0 9 * * 1-5
         /// </summary>
         [JsonProperty("expression")]
         public string Expression { get; set; }
