@@ -312,8 +312,9 @@ from apiverve_cronexpressionparser.apiClient import CronparserAPIClient
 
 api = CronparserAPIClient("[YOUR_API_KEY]")
 
+query = { "expression": "0 9 * * 1-5" }
+
 try:
-    query = { "expression": "0 9 * * 1-5" }
     result = api.execute(query)
     print(result)
 finally:
