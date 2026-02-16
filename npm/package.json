@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/cronparser",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.",
   "main": "index.js",
   "types": "index.d.ts",
