@@ -1,0 +1,16 @@
+name: apiverve_cronparser
+description: Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.
+version: 1.1.14
+homepage: https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=homepage
+repository: https://github.com/apiverve/cronparser-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
