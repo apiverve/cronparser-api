@@ -13,7 +13,12 @@ const API_URL = 'https://api.apiverve.com/v1/cronparser';
  */
 async function callCronExpressionParserAPI() {
   try {
-    const response = await fetch(API_URL, {
+    // Query parameters
+    const params &#x3D; new URLSearchParams({
+            expression: &#x27;0 9 * * 1-5&#x27;
+        });
+
+    const response = await fetch(`${API_URL}?${params}`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY
