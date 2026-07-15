@@ -4,21 +4,34 @@ declare module '@apiverve/cronparser' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface cronparserResponse {
     status: string;
     error: string | null;
     data: CronExpressionParserData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface CronExpressionParserData {
-      expression:  string;
-      isValid:     boolean;
-      format:      string;
+      expression:  null | string;
+      isValid:     boolean | null;
+      format:      null | string;
       fields:      Fields;
-      description: string;
+      description: null | string;
       frequency:   Frequency;
+      nextRuns:    (Date | null)[];
   }
   
   interface Fields {
@@ -31,14 +44,14 @@ declare module '@apiverve/cronparser' {
   }
   
   interface DayOfMonth {
-      expression:  string;
-      description: string;
-      values:      number[];
+      expression:  null | string;
+      description: null | string;
+      values:      (number | null)[];
   }
   
   interface Frequency {
-      type:     string;
-      interval: string;
+      type:     null | string;
+      interval: null | string;
   }
 
   export default class cronparserWrapper {
