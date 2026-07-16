@@ -191,11 +191,131 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Cron Expression Parser API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "expression": "0 9 * * 1-5",
+    "isValid": true,
+    "format": "5-field",
+    "fields": {
+      "second": {
+        "expression": "0",
+        "description": "At 0",
+        "values": [
+          0
+        ]
+      },
+      "minute": {
+        "expression": "0",
+        "description": "At 0",
+        "values": [
+          0
+        ]
+      },
+      "hour": {
+        "expression": "9",
+        "description": "At 9",
+        "values": [
+          9
+        ]
+      },
+      "dayOfMonth": {
+        "expression": "*",
+        "description": "Every",
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "month": {
+        "expression": "*",
+        "description": "Every",
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "dayOfWeek": {
+        "expression": "1-5",
+        "description": "From 1 to 5",
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "description": "At 9:00 AM on Monday, Tuesday, Wednesday, Thursday, Friday",
+    "frequency": {
+      "type": "Daily",
+      "interval": "day"
+    },
+    "nextRuns": [
+      "2026-02-19T09:00:00.000Z",
+      "2026-02-20T09:00:00.000Z",
+      "2026-02-21T09:00:00.000Z",
+      "2026-02-24T09:00:00.000Z",
+      "2026-02-25T09:00:00.000Z"
+    ]
+  }
 }
 ```
 
