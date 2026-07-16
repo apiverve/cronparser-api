@@ -25,6 +25,9 @@ namespace APIVerve.API.CronExpressionParser
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -33,7 +36,7 @@ namespace APIVerve.API.CronExpressionParser
         public string Expression { get; set; }
 
         [JsonProperty("isValid")]
-        public bool IsValid { get; set; }
+        public bool? IsValid { get; set; }
 
         [JsonProperty("format")]
         public string Format { get; set; }
@@ -46,6 +49,9 @@ namespace APIVerve.API.CronExpressionParser
 
         [JsonProperty("frequency")]
         public Frequency Frequency { get; set; }
+
+        [JsonProperty("nextRuns")]
+        public DateTimeOffset?[] NextRuns { get; set; }
     }
 
     public partial class Fields
@@ -78,7 +84,7 @@ namespace APIVerve.API.CronExpressionParser
         public string Description { get; set; }
 
         [JsonProperty("values")]
-        public long[] Values { get; set; }
+        public long?[] Values { get; set; }
     }
 
     public partial class Frequency
@@ -88,5 +94,17 @@ namespace APIVerve.API.CronExpressionParser
 
         [JsonProperty("interval")]
         public string Interval { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
