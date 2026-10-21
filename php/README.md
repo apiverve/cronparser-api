@@ -1,6 +1,6 @@
 # Cron Expression Parser API - PHP Package
 
-Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.
+Cron Expression Parser decodes 5-field and 6-field cron expressions into human-readable schedules. Pass any cron string to verify syntax, read plain-language timing explanations, and get the next five execution timestamps.
 
 ## Installation
 
@@ -184,11 +184,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/cronparser?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/cronparser?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/cronparser?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/cronparser?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/cronparser?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/cronparser?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License
