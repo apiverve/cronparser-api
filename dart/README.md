@@ -1,11 +1,11 @@
 # Cron Expression Parser API - Dart/Flutter Client
 
-Cron Expression Parser is a comprehensive tool for parsing and validating cron expressions. It supports both 5-field and 6-field formats and returns detailed information about each field.
+Cron Expression Parser decodes 5-field and 6-field cron expressions into human-readable schedules. Pass any cron string to verify syntax, read plain-language timing explanations, and get the next five execution timestamps.
 
 [![pub package](https://img.shields.io/pub/v/apiverve_cronparser.svg)](https://pub.dev/packages/apiverve_cronparser)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the Dart/Flutter client for the [Cron Expression Parser API](https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=readme).
+This is the Dart/Flutter client for the [Cron Expression Parser API](https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=referral&utm_content=readme).
 
 ## Installation
 
@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_cronparser: ^1.1.14
+  apiverve_cronparser: ^1.2.3
 ```
 
 Then run:
@@ -148,19 +148,26 @@ void main() async {
     "frequency": {
       "type": "Daily",
       "interval": "day"
-    }
+    },
+    "nextRuns": [
+      "2026-02-19T09:00:00.000Z",
+      "2026-02-20T09:00:00.000Z",
+      "2026-02-21T09:00:00.000Z",
+      "2026-02-24T09:00:00.000Z",
+      "2026-02-25T09:00:00.000Z"
+    ]
   }
 }
 ```
 
 ## API Reference
 
-- **API Home:** [Cron Expression Parser API](https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=readme)
-- **Documentation:** [docs.apiverve.com/ref/cronparser](https://docs.apiverve.com/ref/cronparser?utm_source=dart&utm_medium=readme)
+- **API Home:** [Cron Expression Parser API](https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=referral&utm_content=readme)
+- **Documentation:** [docs.apiverve.com/ref/cronparser](https://docs.apiverve.com/ref/cronparser?utm_source=dart&utm_medium=referral&utm_content=readme)
 
 ## Authentication
 
-All requests require an API key. Get yours at [apiverve.com](https://apiverve.com?utm_source=dart&utm_medium=readme).
+All requests require an API key. Get yours at [apiverve.com](https://apiverve.com?utm_source=dart&utm_medium=referral&utm_content=readme).
 
 ## License
 
@@ -168,4 +175,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-Built with Dart for [APIVerve](https://apiverve.com?utm_source=dart&utm_medium=readme)
+Built with Dart for [APIVerve](https://apiverve.com?utm_source=dart&utm_medium=referral&utm_content=readme)

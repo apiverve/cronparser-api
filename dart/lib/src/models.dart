@@ -6,22 +6,50 @@ class CronparserResponse {
   final dynamic error;
   final CronparserData? data;
 
+  /// Set only when the current plan locks one or more fields; null otherwise.
+  final PremiumInfo? premium;
+
   CronparserResponse({
     required this.status,
     this.error,
     this.data,
+    this.premium,
   });
 
   factory CronparserResponse.fromJson(Map<String, dynamic> json) => CronparserResponse(
     status: json['status'] as String? ?? '',
     error: json['error'],
     data: json['data'] != null ? CronparserData.fromJson(json['data']) : null,
+    premium: json['premium'] != null ? PremiumInfo.fromJson(json['premium']) : null,
   );
 
   Map<String, dynamic> toJson() => {
     'status': status,
     if (error != null) 'error': error,
     if (data != null) 'data': data,
+    if (premium != null) 'premium': premium!.toJson(),
+  };
+}
+
+/// Describes fields the current plan does not unlock. Locked fields arrive as null
+/// in [data], and [lockedFields] names them (nested ones use dot paths).
+class PremiumInfo {
+  final String? message;
+  final String? upgradeUrl;
+  final List<String>? lockedFields;
+
+  PremiumInfo({this.message, this.upgradeUrl, this.lockedFields});
+
+  factory PremiumInfo.fromJson(Map<String, dynamic> json) => PremiumInfo(
+    message: json['message'] as String?,
+    upgradeUrl: json['upgrade_url'] as String?,
+    lockedFields: (json['locked_fields'] as List?)?.map((e) => e.toString()).toList(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (message != null) 'message': message,
+    if (upgradeUrl != null) 'upgrade_url': upgradeUrl,
+    if (lockedFields != null) 'locked_fields': lockedFields,
   };
 }
 
@@ -34,6 +62,7 @@ class CronparserData {
   CronparserDataFields? fields;
   String? description;
   CronparserDataFrequency? frequency;
+  List<String>? nextRuns;
 
   CronparserData({
     this.expression,
@@ -42,6 +71,7 @@ class CronparserData {
     this.fields,
     this.description,
     this.frequency,
+    this.nextRuns,
   });
 
   factory CronparserData.fromJson(Map<String, dynamic> json) => CronparserData(
@@ -51,6 +81,7 @@ class CronparserData {
       fields: json['fields'] != null ? CronparserDataFields.fromJson(json['fields']) : null,
       description: json['description'],
       frequency: json['frequency'] != null ? CronparserDataFrequency.fromJson(json['frequency']) : null,
+      nextRuns: (json['nextRuns'] as List?)?.cast<String>(),
     );
 }
 
@@ -84,7 +115,7 @@ class CronparserDataFields {
 class CronparserDataFieldsSecond {
   String? expression;
   String? description;
-  List<int>? values;
+  List<num>? values;
 
   CronparserDataFieldsSecond({
     this.expression,
@@ -95,14 +126,14 @@ class CronparserDataFieldsSecond {
   factory CronparserDataFieldsSecond.fromJson(Map<String, dynamic> json) => CronparserDataFieldsSecond(
       expression: json['expression'],
       description: json['description'],
-      values: (json['values'] as List?)?.cast<int>(),
+      values: (json['values'] as List?)?.cast<num>(),
     );
 }
 
 class CronparserDataFieldsMinute {
   String? expression;
   String? description;
-  List<int>? values;
+  List<num>? values;
 
   CronparserDataFieldsMinute({
     this.expression,
@@ -113,14 +144,14 @@ class CronparserDataFieldsMinute {
   factory CronparserDataFieldsMinute.fromJson(Map<String, dynamic> json) => CronparserDataFieldsMinute(
       expression: json['expression'],
       description: json['description'],
-      values: (json['values'] as List?)?.cast<int>(),
+      values: (json['values'] as List?)?.cast<num>(),
     );
 }
 
 class CronparserDataFieldsHour {
   String? expression;
   String? description;
-  List<int>? values;
+  List<num>? values;
 
   CronparserDataFieldsHour({
     this.expression,
@@ -131,14 +162,14 @@ class CronparserDataFieldsHour {
   factory CronparserDataFieldsHour.fromJson(Map<String, dynamic> json) => CronparserDataFieldsHour(
       expression: json['expression'],
       description: json['description'],
-      values: (json['values'] as List?)?.cast<int>(),
+      values: (json['values'] as List?)?.cast<num>(),
     );
 }
 
 class CronparserDataFieldsDayofmonth {
   String? expression;
   String? description;
-  List<int>? values;
+  List<num>? values;
 
   CronparserDataFieldsDayofmonth({
     this.expression,
@@ -149,14 +180,14 @@ class CronparserDataFieldsDayofmonth {
   factory CronparserDataFieldsDayofmonth.fromJson(Map<String, dynamic> json) => CronparserDataFieldsDayofmonth(
       expression: json['expression'],
       description: json['description'],
-      values: (json['values'] as List?)?.cast<int>(),
+      values: (json['values'] as List?)?.cast<num>(),
     );
 }
 
 class CronparserDataFieldsMonth {
   String? expression;
   String? description;
-  List<int>? values;
+  List<num>? values;
 
   CronparserDataFieldsMonth({
     this.expression,
@@ -167,14 +198,14 @@ class CronparserDataFieldsMonth {
   factory CronparserDataFieldsMonth.fromJson(Map<String, dynamic> json) => CronparserDataFieldsMonth(
       expression: json['expression'],
       description: json['description'],
-      values: (json['values'] as List?)?.cast<int>(),
+      values: (json['values'] as List?)?.cast<num>(),
     );
 }
 
 class CronparserDataFieldsDayofweek {
   String? expression;
   String? description;
-  List<int>? values;
+  List<num>? values;
 
   CronparserDataFieldsDayofweek({
     this.expression,
@@ -185,7 +216,7 @@ class CronparserDataFieldsDayofweek {
   factory CronparserDataFieldsDayofweek.fromJson(Map<String, dynamic> json) => CronparserDataFieldsDayofweek(
       expression: json['expression'],
       description: json['description'],
-      values: (json['values'] as List?)?.cast<int>(),
+      values: (json['values'] as List?)?.cast<num>(),
     );
 }
 

@@ -46,7 +46,7 @@ final _formatPatterns = {
 
 /// Cron Expression Parser API client.
 ///
-/// For more information, visit: https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/cronparser?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [expression] (required) - The cron expression to parse (5-field or 6-field format)
